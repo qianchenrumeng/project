@@ -1,0 +1,274 @@
+@import "../libs/bootstrap/css/bootstrap.css";
+@import "./component/style.scss";
+@import "./component/header.scss";
+@import "./component/footer.scss";
+.banner{
+	width: 100%;
+	height: 440px;
+}
+.banner_wrap {
+	width:1270px; 
+	height:405px; 
+	margin:60px auto;
+	 overflow: hidden;
+	  position:relative;
+	}
+.banner_wrap ul{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.banner_wrap ul li{
+	height:380px;
+	float: left;
+}
+
+.banner_wrap ol {
+	position:absolute;
+	right: 10%;
+	bottom: -10px;
+	left:48%;
+	z-index:6
+}
+.banner_wrap ol li{
+	width: 15px;
+	height: 15px;
+	background: #fff;
+	margin-left: 5px;
+	float: left;
+	line-height: 20px;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 50%;
+	list-style: none;
+	border: 1px solid black;
+}
+.banner_wrap ol li.ac{
+	background: black;
+}
+.banner_wrap>a{
+	text-decoration: none;
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	height: 40px;
+	line-height: 32px;
+	text-align: center;
+	width: 40px;
+	font-size: 40px;
+	vertical-align: middle;
+	color: #fff;
+	background: rgba(0,0,0,0.5);
+	z-index:6;
+}
+.banner_wrap ul li img{
+	width:1270px; 
+	height:380px;
+}
+main{
+	width: 100%;
+	min-height: 1864px;
+	padding: 0 10px;
+}
+main .main_top{
+	max-width: 1270px;
+	min-height: 477px;
+	background: #fff;
+	margin: 0 auto;
+	margin-bottom: 45px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+main .main_top .top_left{
+	width: 625px;
+	min-height: 477px;
+	float: left;
+}
+main .main_top .top_left h3{
+	font-size: 30px;
+	text-align: center;
+	font-weight: normal;
+	display: block;
+}
+main .main_top .top_left p{
+	text-align: center;
+	font-size: 12px;
+	margin-top: 2px;
+}
+main .main_top .top_left .buy{
+	margin-top: 17px;
+}
+main .main_top .top_left p a{
+	font-size: 18px;
+	color: black;
+}
+main .main_top .top_left .main_img{
+	width:625px;
+	height: 360px;
+	background: url(../images/1.png) no-repeat;
+	background-size: 100%;
+
+}
+main .main_top .top_left .main_img2{
+	width: 625px;
+	height: 360px;
+	background: url(../images/2.png) no-repeat ;
+	background-size: 100%;
+
+}
+main .main_center{
+
+	max-width: 1270px;
+	height: 600px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	h2{
+		font-size:38px;
+		text-align: center;
+		font-weight: normal;
+		margin-bottom: 15px;
+	}
+	ul{
+		height: 40px;
+		width: 432px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 15px;
+		li{
+			width: 32%;
+			height: 100%;
+			border: 1px solid #000000;
+			a{
+				display: block;
+				width: 100%;
+				height: 100%;
+				text-decoration: none;
+				font-size: 18px;
+				color: #000000;
+				line-height: 40px;
+				text-align: center;
+			}
+			
+		}
+		.ac{
+			a{
+				color: #fff;
+			}
+			
+			background: #000000;
+		}
+	}
+	.main_center_wrap{
+		width: 100%;
+		height: 485px;
+		position: relative;
+		div{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: none;
+			
+			dl{
+				box-sizing: border-box;
+				width: 295px;
+				height: 100%;
+				float: left;
+				margin-right: 22px;
+		
+				dt{
+					height: 435px;
+					position: relative;
+					border-bottom: 1px solid #c7c7c7;
+					border-top: 1px solid #c7c7c7;
+					h5{
+						font-size: 18px;
+						font-weight: normal;
+						margin-bottom: 5px;
+					}
+					p{
+						font-size: 12px;
+						width: 165px;
+						margin-bottom: 1px;
+						font-weight: normal;
+					}
+					img{
+						width: 280px;
+						height: 320px;
+					}
+					i{
+						font-size: 20px !important;
+						position: absolute;
+						top:20px;
+						right: 10px;
+
+					}
+				}
+				dd{
+					height: 30px;
+					margin-top: 20px;
+					span{
+						font-size: 16px;
+						b{
+							font-weight: normal;
+						}
+					}
+					a{
+						display: block;
+						float:right;
+						width: 105px;
+						height: 30px;
+						color: #fff;
+						background: #000000;
+						line-height: 30px;
+						text-align: center;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+		.main_center_ac{
+			display: block;
+		}
+	}
+}
+main .main_bottom{
+
+	max-width: 1270px;
+	// height: 710px;
+	background: #fff;
+	margin: 0 auto;
+	h2{
+		font-size:38px;
+		text-align: center;
+		font-weight: normal;
+		margin-bottom: 15px;
+	}
+	ul{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		// height: 93%;
+		width: 100%;
+		overflow: hidden;
+		li{
+			width: 24%;
+			// height: 49%;
+			overflow: hidden;
+			margin-bottom: 20px;
+			a{
+				width: 100%;
+				// height: 100%;
+				display: block;
+					img{
+						width: 100%;
+						height: 100%;
+					}
+				
+			}
+		}
+	}
+}
