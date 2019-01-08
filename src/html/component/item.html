@@ -1,0 +1,21 @@
+
+ <script type="text/html" id="list-template">
+       
+        {{each list item i}}
+        <dl>
+            <dt  class="jump" data-id= "{{item.id}}">
+                <h5>{{item.name}}</h5>
+                <p>{{item.englishName}}</p>
+                <p>色号： RUBY WOO {{item.color}} [RETRO MATTE]</p>
+                <img src="../images/demo{{item.img}}.png" alt="">
+                <i class="iconfont icon-shoucang"></i>
+            </dt>
+            <dd>
+                <span>￥<b class="price">{{item.price}}</b></span>
+                <a href="javascript:;">加入购物车</a>
+            </dd>
+        </dl>
+{{/each}}
+
+</script>
+

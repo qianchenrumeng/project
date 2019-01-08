@@ -11,14 +11,19 @@
     <header></header>
     <main>
             <h2>新用户注册</h2>
-            <p>已经是魅可会员了？<a href="javascript:;">立即登录</a></p>
+            <p>已经是魅可会员了？<a href="login.html">立即登录</a></p>
+            <div class="warning">
+
+            </div>
             <form>
                     <label><input type="text" name="username" id="username"placeholder="*邮箱"></label>
-                    <label><input type="text" name="allname" id="password"placeholder="*全名"></label><br>
-                    <label><input type="password" name="password" id="password"placeholder="*由数字和字母组成"></label><br>
-                    <label><input type="password" name="password" id="password"placeholder="*手机"></label><br>
+                    <label><input type="text" name="allname" id="allname"placeholder="*全名"></label><br>
+                    <label><input type="password" name="password" id="password"placeholder="*由数字和字母组成"class="input_lang"></label><br>
+                    <label><input type="checkbox" name="according" id="according"class="checkMe"><span>显示密码</span></label><br>
+                    <label><input type="text" name="password" id="tel"placeholder="*手机"class="input_lang tel"></label><br>
                    
-                    <a href="javascript:;">您的生日</a>
+                <label><input type="checkbox" name="according" id="agree_mac"class="checkMe"><span>*点击提交表示我同意受魅可官网的条件条款和隐私政策的约束</span></label><br>
+                <label><input type="checkbox" name="according" id="agree_emai"class="checkMe"><span>我同意魅可及所在雅诗兰黛集团向我发送邮件、彩信或致电。</span></label><br>
                     <button id="regBtn">注册</button>
             </form>
     </main>

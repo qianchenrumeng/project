@@ -14,8 +14,8 @@ define(["jquery"], () => {
 			})
 		}
 		nav(){
-			$("#nav").on("click", "li", function(){
-				alert($(this).html());
+			$(".nav").on("click", "li", function(){
+				location.href = "/html/list.html";
 			})
 		}
 	}

@@ -58,8 +58,8 @@ gulp.task("server", () => {
 
 //移动静态资源
 gulp.task("static", () => {
-		gulp.src("src/static/**/*")
-		.pipe(gulp.dest("dist/static"))
+		gulp.src("src/images/**/*")
+		.pipe(gulp.dest("dist/images"))
 		.pipe(connect.reload());
 })
 

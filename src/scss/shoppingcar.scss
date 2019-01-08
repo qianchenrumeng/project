@@ -1,0 +1,42 @@
+@import "./component/style.scss";
+@import "./component/footer.scss";
+@import "./component/header.scss";
+main{
+    margin-top: 60px;
+    h2{
+        font-size: 30px;
+        font-weight: normal;
+        text-align: center;
+        width: 1250px;
+        height: 60px;
+        line-height: 60px;
+        margin: 0 auto;
+        border-bottom: 1px solid #dbdbdb;
+        margin-top: 93px;
+    }
+    table{
+        width: 925px;
+        background: pink;
+        thead{
+            font-size: 24px;
+            th{
+                font-weight: normal;
+                text-align: left;
+            }
+           
+        }
+        tfoot{
+         b{
+             font-size: 24px;
+             font-weight: normal;
+         }
+         p{
+          text-align: left;
+          font-size: 20px;
+         }
+         span{
+            
+         }
+        }
+    }
+}
