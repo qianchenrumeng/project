@@ -8,6 +8,14 @@ main{
     margin-top: 60px;
     padding-left: 35px;
     padding-top: 10px;
+    .warning{
+        display: none;
+        p{
+            color: red;
+        }
+       
+
+    }
     h2{
         font-size: 46px;
         font-weight: normal;

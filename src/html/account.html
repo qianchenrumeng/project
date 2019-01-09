@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <title>Document</title>
         <link rel="stylesheet" href="/libs/font/iconfont.css">
-        <link rel="stylesheet" type="text/css" href="/css/shoppingcar.css">
-        <script type="text/javascript" src="/libs/require/require.js" data-main="/js/shoppingcar.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/account.css">
+        <script type="text/javascript" src="/libs/require/require.js" data-main="/js/account.js"></script>
 </head>
 <body>
     <header></header>
 
     <main>
 
-        <h2>购物车</h2>
+        <h2>结算</h2>
         <table>
             <thead>
                 <th class="tab_information">产品</th>
@@ -33,17 +33,16 @@
                             <li><p>{{item.size}}毫升</p></li>
                             <li><p>{{item.color}}</p></li>
                             <li></li>
-                            <li><a href="javascript:;">加入收藏</a></li>
-                            <li><a href="javascript:;"class="shopping_delete">移除</a></li>
+                            
                         </ul>
                     </td>
                     <td class="shopping_price">
                         ￥<span>{{item.price}}</span>
                     </td>
                     <td>
-                        <span class="shoppingcar_subtract">-</span>
+                       
                         <span class="shoppingcar_num">{{item.num}}</span>
-                        <span class="shoppingcar_add">+</span>
+                        
 
                     </td>
                     <td class = "shoppping_totalprice">
@@ -53,45 +52,30 @@
                 {{/each}}
                 </script>
             </tbody>
+            <tbody>
+                <tr class="address">
+                    <td><span>地址：</span>
+                        <input type="text" placeholder="请输入您的地址!"></td>
+                </tr>
+                <tr class="tel ">
+                    <td><span>联系电话：</span>
+                        <input type="text" placeholder="请输入您的联系电话!"></td>
+                </tr>
+            </tbody>
             <tfoot>
-                <tr class="shopping_tfoot">
-                    <td  class="shopping_tfoot"colspan="4"><b>您的订单小计</b></td>
-                    
-                    
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="3">
-                        <p>小计</p>
-                    </td>
-
-                    <td >
-                        <span>￥<i id="shoppingcar_total"></i></span>
-                            
-                     </td>
-                </tr>
-            
-                <tr>
-                    <td></td>
-                    <td colspan="3">
-                        <p>运费及处理费</p>
-                    </td>
-                    <td>
-                            <span>￥<i id = "shopping_carriage"></i></span>
-                    </td>
-                </tr>
+              
                 <tr>
                     <td></td>
                     <td colspan="3"  class="shopping_tfoot">
-                        <p>预计总额</p>
+                        <p>总额</p>
                     </td>
                     <td  class="shopping_tfoot">
                          <span>￥<i id = "shopping_total"></i></span>
                     </td>
                 </tr>
                 <tr>
-                    <td><a href="/html/list.html">继续购物</a></td>
-                    <td colspan="3"><button id="shoppingcar_account">继续结账</button></td>
+            
+                    <td colspan="3"><button id="account_account">结账</button></td>
                     
                 </tr>
             </tfoot>

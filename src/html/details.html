@@ -20,11 +20,11 @@
         <div class="detail">
             <script type="text/html" id="detail-template">
                 <img src="/images/details{{list.img}}.png" alt="">
-                <ul>
+                <ul data-id = {{list.id}}>
                     <li>
                         <h3>{{list.name}}</h3>
                     </li>
-                    <li>
+                    <li id="details_englishName">
                         <p>{{list.englishName}}</p>
                     </li>
                     <li>
@@ -32,14 +32,14 @@
                         <p>产品特效和功能</p>
                         <p>使用方法</p>
                     </li>
-                    <li>
-                    <h4>PLEASE ME</h4>
-                    <p>{{list.color}}</p>
+                    <li id="details_color">
+                        <h4>PLEASE ME</h4>
+                        <p>{{list.color}}</p>
                     </li>
                     <li class="details_add">
-                    <p><span>3.1毫升</span><a href="javascript:;">分享</a></p>
-                    <p><span>￥<b>{{list.price}}</b></span><i class="iconfont icon-shoucang"></i></p>
-                    <button>加入购物车</button>
+                        <p id="details_size"><span>{{list.size}}</span>毫升<a href="javascript:;">分享</a></p>
+                        <p id="details_price"><span>￥<b>{{list.price}}</b></span><i class="iconfont icon-shoucang"></i></p>
+                        <button class="details_addShoppingcar">加入购物车</button>
                     </li>
                 </ul>
                  <div class="details_color"></div>

@@ -1,9 +1,12 @@
 //首页的业务逻辑
 require(["./requirejs.config"], () => {
 	//引入index需要依赖的模块
-	require(["jquery", "header","footer"], () => {
-		//设置轮播图
+	require(["jquery","item", "header","footer","cookie"], ($,item,header) => {
+		
 		$(function() {
+
+			item.init("http://rap2api.taobao.org/app/mock/123500/lip",header);
+			//设置轮播图
 			function slide(){
 				let $ul = $(".banner_wrap ul");
 				let $imgs = $ul.children();
@@ -16,7 +19,7 @@ require(["./requirejs.config"], () => {
 				for (var i = 1; i <= len; i++) {
 					//拼接按钮
 					btns.push($("<li>").addClass(i===1?"ac":"").appendTo($(".banner_wrap ol")));
-					console.log(btns);
+				
 				}
 			
 				//在结尾追加一个img，计算ul宽度
@@ -56,7 +59,7 @@ require(["./requirejs.config"], () => {
 				}, (function autoPlay(){
 					timer = setInterval(() => {
 						gonext();
-					},2000);
+					},3000);
 					return autoPlay;
 				})());
 			
@@ -68,14 +71,22 @@ require(["./requirejs.config"], () => {
 					//给ul设置
 					$(this).siblings().removeClass("ac");
 					$(this).addClass("ac");
+					//给选项卡渲染内部的ul
+					console.log($(".main_center_wr .main_center_wrap div").eq($(this).index()).children());
 					//给div设置隐藏显示
-					$(".main_center_wr .main_center_wrap div").eq($(this).index()).siblings().removeClass("main_center_ac");
-					$(".main_center_wr .main_center_wrap div").eq($(this).index()).addClass("main_center_ac");
+					$(".main_center_wr .main_center_wrap div").eq($(this).index()).siblings().removeClass("main_center_ac").removeClass("list-item");
+					$(".main_center_wr .main_center_wrap div").eq($(this).index()).addClass("main_center_ac").addClass("list-item");
+					if($(".main_center_wr .main_center_wrap div").eq($(this).index()).children().length === 0){
+						item.init("http://rap2api.taobao.org/app/mock/123500/lip",header);
+					}
+					
 				  })
 			}
 			index_tab();
+			
+			
 
-
-		});
+		})
+	
 	})
 })
