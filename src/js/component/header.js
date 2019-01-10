@@ -1,3 +1,4 @@
+//header部分的业务逻辑
 define(["jquery","cookie"], () => {
 	class Header{
 		constructor(){
@@ -10,6 +11,7 @@ define(["jquery","cookie"], () => {
 					resolve();
 				})
 			}).then(() => {
+				//如果cookie里面存了user，那证明用户是登录状态，顶部要显示欢迎，并且将跳转功能禁止
 			if($.cookie("user")){
 				var str =decodeURIComponent($.cookie("user"));
 				var obj_user = JSON.parse(str);
@@ -23,14 +25,16 @@ define(["jquery","cookie"], () => {
 			})
 		}
 		nav(){
+			//导航栏每个跳转都是到list页面
 			$(".nav").on("click", "li", function(){
 				location.href = "/html/list.html";
 			})
 		}
 		addcar(){
+			//从cookie里取出商品数量，然后加到导航栏的购物车显示中去
 			var arr = [];
 			var str = $.cookie("cart");
-			
+			//判断是否能取出数据，不然如果没有该条cookie，直接json转型的话会报错
 			if(str != undefined){
 				arr = JSON.parse(str);
 			}
@@ -38,13 +42,16 @@ define(["jquery","cookie"], () => {
 			$("#car").html(arr.length);
 		}
 		user_login(){
+			//在登录按钮被点击的时候判断是否处于登录状态
 			$("#header_login").on("click",function(){
+				//如果是登录状态，就将该按钮禁用，禁止跳转到登录页面
 				if($.cookie("user")){
 					$("#header_login").attr('disabled', 'true');
 				}else{
 					location.href = "/html/login.html";
 				}
 			})
+			//给购物车按钮绑定跳转事件
 			$("#goShoppingcar").on("click",function () {
 				location.href = "/html/shoppingcar.html";
 			  })

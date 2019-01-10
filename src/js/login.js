@@ -5,7 +5,7 @@ require(["./requirejs.config"], () => {
         $(function () { 
 			$("#regBtn").on("click",function(e){
 				e = e || window.event;
-			
+			//登录的逻辑比较简单，获得页面上用户输入的数据，然后传给后台，然后根据后台返回的结果进行显示给用户
 				$.ajax({
 					type:"post",
 					url:"http://localhost/mac/login.php",
@@ -17,6 +17,7 @@ require(["./requirejs.config"], () => {
 					success:function (res) {
 						
 						if(res.res_code){
+							//将取得的用户信息存入cookie中，方便别的页面取出来
 							var str = JSON.stringify(res.res_body);
 							// console.log(str);
 							$.cookie("user", encodeURIComponent(str) ,{

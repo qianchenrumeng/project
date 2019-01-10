@@ -1,13 +1,13 @@
-//首页的业务逻辑
+//详情页的业务逻辑
 require(["./requirejs.config"], () => {
-	//引入index需要依赖的模块
+	//引入该页面需要依赖的模块
 	require(["jquery","template","item", "header","footer"], ($,template,item,header) => {
         $(function(){
 			//获取id
 			let arrSearch = location.search.slice(1).split("=");
 			let searchObj = {};
 			searchObj[arrSearch[0]] = arrSearch[1];
-	  
+			//根据id向后台请求相关的数据
 			$.ajax({
 			  url:"http://rap2api.taobao.org/app/mock/123500/details",
 			  type:"GET",
@@ -24,10 +24,12 @@ require(["./requirejs.config"], () => {
 			  }
 	  
 			})
-
+			//添加购物车函数
 		function	addshoppingcar(){
+			//给添加购物车按钮绑定事件
+			//因为渲染详情页的模板和list的不是同一个，获取的数据的位置也不一样，所以要重新写该事件
 			$(".details_addShoppingcar").on("click",function(){
-				
+				//从页面上获得相关的数据
 				 let carParent = $(this).parent().parent();
 				 let name = $(carParent).children("li").children("h3").html();
 				 let id = $(carParent).attr("data-id");
@@ -38,7 +40,7 @@ require(["./requirejs.config"], () => {
 				 let price = $(this).siblings("#details_price").children("span").children("b").html();
 				 let num = 1;
 				 let totalPrice =num * price;
-
+				//将数据存到一个对象中
 				 var goodsObj = {id,name,englishName,color,img,price,size,num,totalPrice};
 
 				
@@ -75,8 +77,7 @@ require(["./requirejs.config"], () => {
 				if(i === arr.length){
 					arr.push(goodsObj);
 				}
-			
-			
+
 	
 				$.cookie("cart",JSON.stringify(arr),{
 					path:"/"

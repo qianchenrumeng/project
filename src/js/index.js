@@ -4,7 +4,7 @@ require(["./requirejs.config"], () => {
 	require(["jquery","item", "header","footer","cookie"], ($,item,header) => {
 		
 		$(function() {
-
+			//该页面的list，先将url传给item，将请求的数据渲染到默认指定的元素里
 			item.init("http://rap2api.taobao.org/app/mock/123500/lip",header);
 			//设置轮播图
 			function slide(){
@@ -76,6 +76,7 @@ require(["./requirejs.config"], () => {
 					//给div设置隐藏显示
 					$(".main_center_wr .main_center_wrap div").eq($(this).index()).siblings().removeClass("main_center_ac").removeClass("list-item");
 					$(".main_center_wr .main_center_wrap div").eq($(this).index()).addClass("main_center_ac").addClass("list-item");
+					//如果当前元素内部是空的，即没有渲染过，就像后台请求数据渲染
 					if($(".main_center_wr .main_center_wrap div").eq($(this).index()).children().length === 0){
 						item.init("http://rap2api.taobao.org/app/mock/123500/lip",header);
 					}

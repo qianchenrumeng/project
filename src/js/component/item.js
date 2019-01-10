@@ -1,15 +1,21 @@
+//商品展示的模板的业务逻辑
 define(["jquery", "template","cookie"], ($, template) => {
+	//构造函数
 	function Item(){
 
 	}
 
 	Item.prototype.init = function(url,header){
 		//先load到页面上，得到url，然后去请求数据,渲染结构，
+		//因为每一次添加购物车事件都要都可能引起header的购物车里面的数量的显示的变化
+		//因为在每个页面都引入了header模块，在引入了item模块的页面也引入了header
+		//在调用item的init方法的时候传入后端接口的uel以及heaer，这样在item中就可以调用header的方法了
+		//接收的header就加在当前对象中去
 		this.header = header;
 		//load
 		new Promise((resolve, reject) => {
 			//console.log(url);
-			
+			//将当前模板的html加载到当前页面的指定模块中
 			$(".list-item").load("/html/component/item.html", () => {
 				resolve();
 			})
@@ -31,6 +37,7 @@ define(["jquery", "template","cookie"], ($, template) => {
 						
 						$(".list-item").html(html);
 						// console.log(html);
+						//给每一个单独的模块都要绑定事件，点击就跳转到详情页面，并且将当前商品id传过去
 						$(".jump").on("click",function(e){
 							var target = e.target;
 							
@@ -48,9 +55,11 @@ define(["jquery", "template","cookie"], ($, template) => {
 	}
 
 	Item.prototype.addShoppingcar = function(){
+		//因为在调用header的时候是在按钮的监听事件里面，会改变this的指向，所以先用一个变量保存当前this指向
 		let _this = this;
+		//给每一个添加购物车按钮绑定点击事件
 		$(".addShoppingcar").on("click",function(){
-			
+			//每次点击以后就获取相关的数据，然后存到一个对象里面
 		   let carParent = $(this).parent().parent();
 		   let name = $(carParent).children("dt").children("h5").html();
 		   let id = $(carParent).children("dt").attr("data-id");
@@ -64,6 +73,7 @@ define(["jquery", "template","cookie"], ($, template) => {
 		   var goodsObj = {id,name,englishName,color,img,price,size,num,totalPrice};
 
 		   var arr = [];
+		   //先判断cookie是否存了cart这条数据，如果存了就取出来转成一个json数组
 		   if($.cookie("cart")){
 			//JSON.parse() 方法用于将一个 JSON 字符串转换为对象。
 			var arr = JSON.parse($.cookie("cart"));
@@ -80,7 +90,7 @@ define(["jquery", "template","cookie"], ($, template) => {
 			for(var i = 0; i < arr.length; i++){
 				//如果本条里面的id和从cookie中获得的有一样的，就说明这条已经添加过了
 				if(arr[i].id === goodsObj.id){
-					//将记录数量的变量加一
+					//将记录数量的变量加一,并重新获得该商品的总价
 					arr[i].num ++;
 					arr[i].totalPrice = arr[i].num * arr[i].price;
 					flag = false;
