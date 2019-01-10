@@ -5,12 +5,7 @@ require(["./requirejs.config"], () => {
         $(function () { 
 			$("#regBtn").on("click",function(e){
 				e = e || window.event;
-				let user = {
-					"username" :$("#username").val(),
-					"password" : $("#password").val()
-
-				}
-				console.log(user);
+			
 				$.ajax({
 					type:"post",
 					url:"http://localhost/mac/login.php",
@@ -20,10 +15,10 @@ require(["./requirejs.config"], () => {
 						"password" : $("#password").val()
 					},
 					success:function (res) {
-						console.log(res.res_body);
+						
 						if(res.res_code){
 							var str = JSON.stringify(res.res_body);
-							console.log(str);
+							// console.log(str);
 							$.cookie("user", encodeURIComponent(str) ,{
 								path:"/"
 							});
@@ -32,9 +27,7 @@ require(["./requirejs.config"], () => {
 
 						
 						}else{
-							// if(confirm(res.res_body)){
-							// 	window.location.href = "login.html";
-							// }
+							
 							$(".warning").css({display:"block"}).append($("<p>").html(res.res_body));
 						}
 					}

@@ -3,11 +3,18 @@ require(["./requirejs.config"], () => {
 	//引入index需要依赖的模块
 	require(["jquery", "template","header","footer","cookie"], ($,template,header) => {
         $(function(){
+		
 			var str = $.cookie("cart");
 		
 			var arr = [];
-			if(str != undefined){
-				 arr = JSON.parse(str);
+			takeOut();
+			function takeOut(){
+				if(str === undefined || str == "[]"){
+					$("#shopping_replace").css({display:"block"});
+				}else{
+					
+					arr = JSON.parse(str);
+				}
 			}
 			
 			let html = template("list-template", {arr});
@@ -64,6 +71,7 @@ require(["./requirejs.config"], () => {
 						}
 					})
 					$(this).parent().parent().remove();
+					
 				}else{
 					for(let i = 0; i < arr.length; i++){
 						if(arr[i].id === id){
@@ -80,9 +88,13 @@ require(["./requirejs.config"], () => {
 				$.cookie("cart",JSON.stringify(arr),{
 					path:"/"
 				});
-
+				
 				shoppingcar_price(arr);
 				header.addcar();
+		
+				if(arr.length === 0){
+					$("#shopping_replace").css({display:"block"});
+				}
 				
 			})
 
@@ -100,6 +112,9 @@ require(["./requirejs.config"], () => {
 				$(this).parent().parent().parent().parent().remove();
 				shoppingcar_price(arr);
 				header.addcar();
+				if(arr.length === 0){
+					$("#shopping_replace").css({display:"block"});
+				}
 			 })
 			 //结算
 			 $("#shoppingcar_account").on("click",function(){

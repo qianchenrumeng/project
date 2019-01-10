@@ -13,6 +13,7 @@
     <main>
 
         <h2>购物车</h2>
+       
         <table>
             <thead>
                 <th class="tab_information">产品</th>
@@ -20,8 +21,13 @@
                 <th>数量</th>
                 <th>总计</th>
             </thead>
-            
+           <tbody id="shopping_replace">
+                <tr>
+                     <td colspan="4"><p>您的购物车是空的哦</p></td>
+                </tr>
+           </tbody>
             <tbody class="shoppingcar">
+               
                     <script type="text/html" id = "list-template">
                         {{each arr item i}}
                 <tr data-id = "{{item.id}}">

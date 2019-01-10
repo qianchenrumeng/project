@@ -30,7 +30,7 @@ define(["jquery","cookie"], () => {
 		addcar(){
 			var arr = [];
 			var str = $.cookie("cart");
-			console.log(str)
+			
 			if(str != undefined){
 				arr = JSON.parse(str);
 			}

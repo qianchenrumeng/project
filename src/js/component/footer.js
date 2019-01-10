@@ -14,7 +14,9 @@ define(["jquery"], () => {
             })
         }
         nav(){
-            console.log("yes");
+           $(".footer").find("a").on("click",function () {
+                location.href = "http://baidu.com";
+             })
         }
     }
     return new Footer();

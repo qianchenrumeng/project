@@ -27,20 +27,21 @@ require(["./requirejs.config"], () => {
 
 		function	addshoppingcar(){
 			$(".details_addShoppingcar").on("click",function(){
-		
+				
 				 let carParent = $(this).parent().parent();
 				 let name = $(carParent).children("li").children("h3").html();
 				 let id = $(carParent).attr("data-id");
 				 let englishName = $(carParent).children("#details_englishName").children("p").html();
 				 let color = $(carParent).children("#details_color").children("p").html();
 				 let img = $(carParent).siblings().attr("src") ;
-			   let size = $(this).siblings("#details_size").children("span").html();
+			     let size = $(this).siblings("#details_size").children("span").html();
 				 let price = $(this).siblings("#details_price").children("span").children("b").html();
-					let num = 1;
-					let totalPrice =num * price;
+				 let num = 1;
+				 let totalPrice =num * price;
 
 				 var goodsObj = {id,name,englishName,color,img,price,size,num,totalPrice};
-	
+
+				
 				 var arr = [];
 				 if($.cookie("cart")){
 				//JSON.parse() 方法用于将一个 JSON 字符串转换为对象。
@@ -49,7 +50,7 @@ require(["./requirejs.config"], () => {
 				
 					var arr = [];
 				}
-	
+				
 				//判断当前的这一条是否已经被添加过了
 				//创建一个标志位，记录是否进入过循环
 				var flag = true;
@@ -77,7 +78,10 @@ require(["./requirejs.config"], () => {
 			
 			
 	
-				$.cookie("cart",JSON.stringify(arr));
+				$.cookie("cart",JSON.stringify(arr),{
+					path:"/"
+				});
+				header.addcar();
 			})
 		}
 

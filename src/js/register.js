@@ -27,7 +27,7 @@ require(["./requirejs.config"], () => {
 					email = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
 				//定义变量存储判断的状态
 				//
-				let pwdNum = false,telNum = false,emailNum =false,nameNum = false;
+				let pwdNum = false,telNum = false,emailNum =false,nameNum = false,agree = false;
 				//判断邮箱
 					if(user.email === ""){
 						$(".warning").css({display:"block"}).append($("<p>").html("邮箱不能为空!"));
@@ -65,7 +65,13 @@ require(["./requirejs.config"], () => {
 					}else{
 						telNum = true;
 					}
-				if(emailNum && nameNum && pwdNum && telNum){
+
+					if($("#agree_mac").prop("checked")){
+						agree = true;
+					}else{
+						$(".warning").css({display:"block"}).append($("<p>").html("请同意魅可官网的条件条款和隐私政策的约束!"));
+					}
+				if(emailNum && nameNum && pwdNum && telNum && agree){
 					$.ajax({
 						type:"post",
 						url:"http://localhost/mac/register.php",
@@ -79,7 +85,7 @@ require(["./requirejs.config"], () => {
 						},
 						//根据返回参数执行函数
 						success:function (res) {
-							console.log(res);
+							
 							if(res.res_code){
 								if(confirm(res.res_message)){
 									window.location.href = "login.html";

@@ -72,7 +72,7 @@ require(["./requirejs.config"], () => {
 					$(this).siblings().removeClass("ac");
 					$(this).addClass("ac");
 					//给选项卡渲染内部的ul
-					console.log($(".main_center_wr .main_center_wrap div").eq($(this).index()).children());
+					// console.log($(".main_center_wr .main_center_wrap div").eq($(this).index()).children());
 					//给div设置隐藏显示
 					$(".main_center_wr .main_center_wrap div").eq($(this).index()).siblings().removeClass("main_center_ac").removeClass("list-item");
 					$(".main_center_wr .main_center_wrap div").eq($(this).index()).addClass("main_center_ac").addClass("list-item");
