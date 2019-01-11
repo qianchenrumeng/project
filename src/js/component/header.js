@@ -49,13 +49,17 @@ define(["jquery","cookie"], () => {
 					// $("#header_login").attr('disabled', 'true');
 					$(".my_login").css({display:"block"});
 					$(".my_out").on("click",function () {  
-						console.log(1);
-						$.cookie("user",null,{
-							expires:-1,
-							path:"/"
-						});
-						$("#header_login").html("用户登录");
-						$(".my_login").css({display:"none"});
+						if(confirm("确定退出登录吗？")){
+							$.cookie("user",null,{
+								expires:-1,
+								path:"/"
+							});
+							$("#header_login").html("用户登录");
+							$(".my_login").css({display:"none"});
+						}else{
+							$(".my_login").css({display:"none"});
+						}
+					
 					})
 					
 				}else{
