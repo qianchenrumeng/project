@@ -10,6 +10,30 @@ footer{
         background: #292929;
         display: flex;
         justify-content: space-between;
+        #footer_fixed{
+            width: 225px;
+            height: 35px;
+            position: fixed;
+            left:10px;
+            bottom: 10px;
+            background: black;
+          
+            line-height: 35px;
+            text-align: center;
+            border: 1px solid #fff;
+            font-weight: 600;
+            a{
+                color: #ffffff;
+                display: block;
+                width: 225px;
+                height: 35px;
+                i{
+                    margin-right: 20px;
+                    font-size: 20px;
+                }
+            }
+          
+        }
         div{
             width: 20%;
             height: 100%;
