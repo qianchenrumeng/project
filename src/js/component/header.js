@@ -46,7 +46,18 @@ define(["jquery","cookie"], () => {
 			$("#header_login").on("click",function(){
 				//如果是登录状态，就将该按钮禁用，禁止跳转到登录页面
 				if($.cookie("user")){
-					$("#header_login").attr('disabled', 'true');
+					// $("#header_login").attr('disabled', 'true');
+					$(".my_login").css({display:"block"});
+					$(".my_out").on("click",function () {  
+						console.log(1);
+						$.cookie("user",null,{
+							expires:-1,
+							path:"/"
+						});
+						$("#header_login").html("用户登录");
+						$(".my_login").css({display:"none"});
+					})
+					
 				}else{
 					location.href = "/html/login.html";
 				}
